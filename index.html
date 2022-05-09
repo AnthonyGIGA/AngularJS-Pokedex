@@ -1,0 +1,127 @@
+<html lang="en"  ng-app="pokedex">
+   <head>
+      <meta charset="UTF-8"> 
+
+      <!-- importar angular 1.5 -->
+      <script src="angular-1.5.5/angular.min.js"></script>
+      
+      <!-- importar ag-grid -->
+      <script src="https://unpkg.com/ag-grid@13.2.0/dist/ag-grid.js"></script>
+      
+      <!-- importar estilos de angular material -->
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.css">
+      
+      <!-- importar estilos del proyecto -->
+      <link rel="stylesheet" href="lib/style.css">
+      <link rel="stylesheet" href="lib/pokecard.css">
+
+      <!-- importar script del proyecto -->
+      <script src="lib/script.js"></script>
+      <script src="lib/agscript.js"></script>
+
+      <title>Pokedex</title>
+      <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+   </head>
+   <body  ng-controller="pokemonController as pokemons">
+      <!-- Barra superior -->
+      <md-toolbar  class="md-accent">
+         <div class="md-toolbar-tools">
+            <h1>
+               <span class="md-title"><b>Pokedex Site!</b></span>
+            </h1>
+         </div>
+      </md-toolbar>  
+
+      <!-- Area de contenido -->
+      <div layout="row"  ng-controller="pokemonCategory" style="width: 80%; margin: auto;"> 
+         <md-card flex >
+            <md-card-content> 
+               <md-content>
+                  <md-input-container class="md-block">
+                     <label>Name</label>
+                     <input name="Name"  ng-model="search.Name"> 
+                  </md-input-container>
+                  <div layout="row">
+                     <md-input-container flex="50">
+                        <label>Generation</label>
+                        <md-select name="Generation" ng-model="search.Generation">
+                           <md-option value="">All</md-option>
+                           <md-option ng-repeat="gen in generations" value="{{ gen.number }}">{{ gen.name }}</md-option>
+                        </md-select>
+                     </md-input-container>
+                     <md-input-container flex="50">
+                        <label>Type 1</label>
+                        <md-select name="Type1" ng-model="search.Type1">
+                           <md-option value="">All</md-option>
+                           <md-option ng-repeat="typ in types" value="{{ typ.type }}">{{ typ.type }}</md-option>
+                        </md-select>
+                     </md-input-container>
+                     <md-input-container flex="50">
+                        <label>Type 2</label>
+                        <md-select name="Type2" ng-model="search.Type2">
+                           <md-option value="">All</md-option>
+                           <md-option ng-repeat="typ in types" value="{{ typ.type }}">{{ typ.type }}</md-option>
+                        </md-select>
+                     </md-input-container>
+                  </div>
+                  <md-input-container class="md-block">
+                     <md-checkbox name="Legendary" ng-model="search.Legendary" required>
+                        Legendary
+                     </md-checkbox>
+                  </md-input-container>
+                  <md-divider ></md-divider>
+                  
+                  <!-- barra de progreso -->
+                  <!-- <div class="progressCirculardemoBasicUsage" ng-controller="AppCtrl as vm" style="margin: 50px;"> 
+                     <div layout="row" layout-sm="column" layout-align="space-around">
+                        <md-progress-circular ng-disabled="!vm.activated" class="md-accent" md-diameter="60"></md-progress-circular> 
+                     </div>
+                  </div> -->
+ 
+                
+                  <div ng-controller="pokemonAg">
+                     <md-button id="AgGridListButtonShow" class="md-accent" ng-click="showAg($event)">
+                        Show Ag-Grid List
+                     </md-button>  
+                     <md-button id="AgGridListButtonHide" class="md-accent" ng-click="hideAg($event)" style="display: none;">
+                        Hide Ag-Grid List
+                     </md-button>  
+                     <div id="AgGridList" ng-app="example" ng-controller="exampleCtrl"  style="height: 550px; ">
+                           <p ng-bind='data'></p>
+                        <div ag-grid="gridOptions" class="ag-fresh" style="height: 100%; width: 100%;"> 
+                        </div>
+                     </div>
+
+                  </div>
+                
+                  <!-- Listado de pokemon--> 
+                  <md-list ng-cloak style="height: 500px; overflow: auto;">
+                     <md-subheader class="md-no-sticky">Pokémon List</md-subheader> 
+
+                     <md-list-item  ng-controller="pokemonSelect" ng-repeat="poke in pokemons.pokemon | filter:search" ng-click="showAdvanced($event, poke)" class="noright md-3-line">
+                        <md-divider ></md-divider>
+                        <img alt="{{poke.Name}}" ng-src="assets/imgs/pkmimgs/{{poke.Number}}.jpg" class="md-avatar" /> 
+                        <div class="md-list-item-text" layout="column">
+                           <p>{{poke.Number}}</p>
+                           <h3>{{ poke.Name }}</h3>
+                           <p>Type 1: {{ poke.Type1 }}</p>
+                           <p>Type 2: {{ poke.Type2 }}</p>
+                        </div>
+                     </md-list-item>
+                  </md-list>
+               </md-content>
+            </md-card-content>
+         </md-card>
+      </div>
+      <br><br> 
+      
+      <!-- importar dependencias de angular material -->
+      <script src="angular-1.5.5/angular.min.js"></script>
+      <script src="angular-1.5.5/angular-animate.min.js"></script>
+      <script src="angular-1.5.5/angular-aria.min.js"></script>
+      <script src="angular-1.5.5/angular-messages.min.js"></script>
+      
+      <!-- importar angular material -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.2.1/angular-material.min.js"></script>
+   </body>
+</html>

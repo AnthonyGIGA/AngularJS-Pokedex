@@ -1,0 +1,74 @@
+.att {
+  color: #006cb0;
+}
+.md-headline {
+  color: #E91E63;
+}
+md-content {
+  background-color: #fff;
+}
+/* estilos lista */
+.listdemoListControls md-divider {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.listdemoListControls md-list {
+  padding-top: 0;
+}
+.listdemoListControls md-list-item > p,
+.listdemoListControls md-list-item > .md-list-item-inner > p,
+.listdemoListControls md-list-item .md-list-item-inner > p,
+.listdemoListControls md-list-item .md-list-item-inner > .md-list-item-inner > p {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */
+} 
+
+
+.dialogdemoThemeInheritance .container {
+  text-align: center;
+}
+
+
+
+.progressCirculardemoBasicUsage body {
+  padding: 20px;
+}
+.progressCirculardemoBasicUsage h4 {
+  margin: 10px 0;
+}
+.progressCirculardemoBasicUsage md-progress-circular {
+  margin-bottom: 20px;
+}
+.progressCirculardemoBasicUsage #loaders > md-switch {
+  margin: 0;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.progressCirculardemoBasicUsage #loaders > h5 {
+  margin-top: 0;
+}
+.progressCirculardemoBasicUsage #loaders > p {
+  margin-right: 20px;
+  margin-bottom: 24px;
+}
+.progressCirculardemoBasicUsage p.small {
+  font-size: 0.8em;
+  margin-top: -18px;
+}
+.progressCirculardemoBasicUsage hr {
+  width: 100%;
+  margin-top: 20px;
+  border-color: rgba(221, 221, 177, 0.1);
+}
+.progressCirculardemoBasicUsage p.small > code {
+  font-size: 0.8em;
+}
+.progressCirculardemoBasicUsage .visible {
+  border-color: rgba(221, 221, 177, 0);
+}
