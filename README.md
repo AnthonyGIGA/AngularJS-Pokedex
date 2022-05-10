@@ -1,6 +1,7 @@
 ## Pokedex Site
 
- Sitio de busqueda de diversos Pokemon 
+ Sitio de busqueda de diversos Pokemon.
+ https://anthonygiga.github.io/AngularJS-Pokedex/
 
 ### Funcionamiento
 
